@@ -1,0 +1,39 @@
+'**************************
+'**Overview of assignment**
+'**************************
+
+'This week's challenge requires us to loop through a workbook containing three worksheets of stock data.
+'Each worksheet contains a single year's data for various stocks. Within each worksheet we need to output the following for each stock:
+' 1. obtain the ticker symbol
+' 2. calculate the yearly change from the opening price at the beginning of the year to the closing price at the end of the year
+' 3. calculate the yearly percentage change from the opening price at the beginning of the year to the closing price at the end of the year
+' 4. calculate the total volume of hte stock.
+
+'In addition, we need to apply conditional formatting to the cells containing the yearly change and percent change:
+'   if change is less than zero, shade the cell red.
+'   if the change is greter than or equal to zero, shade the cell green.
+'
+'Lastly, once the resulst by stock have been calculated and printed, we are to identify the stocks and their volume that have:
+' a. the greatest % increase
+' b. the greatest % decrease
+' c. the greatest total volume
+'
+'These caluclations are to be peformed on each worksheet within the the workbook automatically.
+'
+'***********************
+'**Notes on the script**
+'***********************
+'
+'My script can be found in the file, "StockData_Bein_Justin.vbs"
+'The script begins with the declaration of all variables, grouped by type, e.g., string, integer, double, etc. For clarity, I added descriptions of each variable. Next, the processing section begins,
+' and a the outermost loop (a FOR loop) is defined to step through each worksheet. The FOR loop begins with initialization of the variables - this was done to "reset" the variables when starting each
+' worksheet to avoid unexpected values (that is, a "clean slate"). Next, the code creates the output section of the worksheet. This is where the results by stock ticker and the overall results
+' will be printed.
+' Next, the data corresponding to the first stock is obtained - this is done outside of the next loop. This approach seems to me to be efficient code - it does not require loopeing through the data more than once.
+' Then, another FOR loop is used to step through the the data. A single IF THEN ELSE statement compares the current ticker with the ticker in the following row, and performs calculations needed to obtain
+' the results we seek.
+' Once the code has looped through the data and a results "table" is generated, a second loop (not nested) goes through the results and determines the overall results (see a-c above).
+'
+' The script includes the following:  LastRowOfData = ws.Range("A:A").SpecialCells(xlCellTypeLastCell).Row
+' I found the SpecialCells property by using a macro to record the shortcuts I typically use. I then evaluated the macro to determine which property was relevant.
+
